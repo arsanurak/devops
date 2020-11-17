@@ -25,11 +25,13 @@ spec:
         app: example-app
     spec:
       containers:
-      - name: example-app
-        image: aimvector/python:1.0.4
+      - name: dsg-teller
+        image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dsg-teller:1.0.8
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred        
         # livenessProbe:
         #   httpGet:
         #     path: /status

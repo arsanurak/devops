@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fx-admin
+spec:
+  progressDeadlineSeconds: 30
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fx-admin
+  template:
+    metadata:
+      labels:
+        app: fx-admin
+    spec:
+      containers:
+      - name: fx-admin
+        image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/fx-admin:1.0.53
+        ports:
+        - name: http
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
