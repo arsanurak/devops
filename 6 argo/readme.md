@@ -21,9 +21,11 @@ Access Argo CD Port Forwarding¶
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
+Access https://localhost:8080
+
 Describe ConfigMap
 ```
 kubectl describe configmap example-config
-```\
+```
 
 
