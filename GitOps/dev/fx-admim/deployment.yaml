@@ -4,7 +4,7 @@ metadata:
   name: fx-admin
 spec:
   progressDeadlineSeconds: 30
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: fx-admin
@@ -14,12 +14,12 @@ spec:
         app: fx-admin
     spec:
       containers:
-      - name: fx-admin
+      - name: nginx
         image: nginx
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 80
         readinessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: 80
