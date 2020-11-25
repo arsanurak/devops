@@ -4,7 +4,7 @@ metadata:
   name: fx-admin
 spec:
   progressDeadlineSeconds: 30
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: fx-admin
