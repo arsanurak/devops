@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - service.yaml
 - deployment.yaml
-namespace: default
+namespace: ns-ecr-renew-demo
 commonLabels:
   app: myapp
