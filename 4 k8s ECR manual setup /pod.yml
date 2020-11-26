@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: ns-ecr-renew-demo
+  name: ecr-image-pull-test-demo
+  labels:
+    name: ecr-image-pull-test-demo
+spec:
+  imagePullSecrets:
+    - name: ecr-docker-login-demo
+  containers:
+    - name: my-test-container-demo
+      image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dsg-admin:1.0.437
+      ports:
+        - containerPort: 80
+          
