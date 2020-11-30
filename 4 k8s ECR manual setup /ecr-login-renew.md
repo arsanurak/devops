@@ -14,8 +14,8 @@ kubectl create secret -n ns-ecr-renew-demo generic ecr-renew-cred-demo \
 ```shell script
 kubectl create secret -n ns-ecr-renew-demo generic ecr-renew-cred-demo \
   --from-literal=REGION=ap-southeast-1 \
-  --from-literal=ID=AKIAJPARFOQIKG2JAEMQ \
-  --from-literal=SECRET=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
+  --from-literal=ID= \
+  --from-literal=SECRET=
 ```
 
 ```shell script
