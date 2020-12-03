@@ -27,10 +27,10 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
-        volumeMounts:
-        - name: config-volume
-          mountPath: /configs/
-      volumes:
-      - name: config-volume
-        configMap:
-          name: example-config
+      #   volumeMounts:
+      #   - name: config-volume
+      #     mountPath: /configs/
+      # volumes:
+      # - name: config-volume
+      #   configMap:
+      #     name: example-config
