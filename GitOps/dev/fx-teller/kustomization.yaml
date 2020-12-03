@@ -9,4 +9,4 @@ commonLabels:
 configMapGenerator:
 - name: myAppEnvVars
   literals:
-  - MONGO_URL=mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority
+  - MONGO_URL="mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority"
