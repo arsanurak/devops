@@ -19,6 +19,7 @@ spec:
         ports:
         - name: http
           containerPort: 8080
-      - env:
-        - name: MONGO_URL # (1)
-          value: mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
