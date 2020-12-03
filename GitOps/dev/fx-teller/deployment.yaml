@@ -1,25 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fx-admin
+  name: dsg-teller
 spec:
   progressDeadlineSeconds: 30
   replicas: 2
   selector:
     matchLabels:
-      app: fx-admin
+      app: dsg-teller
   template:
     metadata:
       labels:
-        app: fx-admin
+        app: dsg-teller
     spec:
       containers:
-      - name: fx-admin
+      - name: dsg-teller
         image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dsg-teller:1.0.8
         ports:
         - name: http
           containerPort: 8080
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
