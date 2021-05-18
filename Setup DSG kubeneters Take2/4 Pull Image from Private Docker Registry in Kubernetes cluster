@@ -23,6 +23,8 @@ cat .docker/config.json | base64
 
 put on 
 
+ecr-secret.yaml
+
 apiVersion: v1
 kind: Secret
 metadata:
