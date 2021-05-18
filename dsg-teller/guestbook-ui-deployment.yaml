@@ -13,8 +13,10 @@ spec:
       labels:
         app: guestbook-ui
     spec:
+      imagePullSecrets:
+      - name: ecr-registry-key
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dsg-teller:1.0.8
         name: guestbook-ui
         ports:
         - containerPort: 80
