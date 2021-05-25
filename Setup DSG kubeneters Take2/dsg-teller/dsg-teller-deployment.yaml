@@ -20,6 +20,6 @@ spec:
         name: dsg-teller
         ports:
         - containerPort: 80
-        envFrom:               
+      envFrom:               
        - configMapRef:
            name: dsg-teller
