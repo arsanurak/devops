@@ -18,8 +18,9 @@ ap-southeast-1
 
 aws ecr get-login-password --region ap-southeast-1 | sudo docker login --username AWS --password-stdin 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com
 
-ars@ars-desktop:~$ sudo cat /root/.docker/config.json
-cat .docker/config.json | base64
+sudo cat /root/.docker/config.json
+sudo cat /root/.docker/config.json | base64 -w 0
+
 
 put on 
 
