@@ -22,4 +22,4 @@ spec:
         - containerPort: 80
         env:
         - name: MONGO_URL
-          value: "mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority"
+          value: mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority
