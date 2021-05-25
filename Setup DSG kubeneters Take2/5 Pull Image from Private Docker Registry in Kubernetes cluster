@@ -34,6 +34,8 @@ data:
 type: kubernetes.io/dockerconfigjson
 
 
+kubectl apply -f ecr-secret.yaml
+
 kubectl get secret
 ecr-registry-key      kubernetes.io/dockerconfigjson        1      21s
 

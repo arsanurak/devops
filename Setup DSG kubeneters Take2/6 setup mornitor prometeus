@@ -1,0 +1,23 @@
+sudo snap install helm
+
+Install Monitoring
+Let’s install Prometheus and Grafana with Helm. Add Repository and install it on the monitoring namespace.
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install --namespace monitoring --create-namespace prometheus prometheus-community/kube-prometheus-stack
+
+Forward Grafana
+Search for the Pod.
+
+kubectl get pod -n monitoring  | grep prometheus-grafana
+prometheus-grafana-bd89cc787-snlk6                       2/2     Running   0          9m34s
+
+
+kubectl -n monitoring port-forward prometheus-grafana-7b764c9d78-ggsh4 3000:3000
+
+Forward it port http://localhost:3000 log in with the 
+admin username and 
+prom-operator password 
+
+and you’ll see a lot of ready for user graphs
+
