@@ -1,0 +1,13 @@
+Test setup Guest book app in UI
+https://argoproj.github.io/argo-cd/getting_started/
+
+kustomize-guestbook
+
+
+Setup argo cd with private registory ECR
+
+dollarsmartglobal-com
+
+Setup argo cd with private registory ECR + Connect MongoDB
+
+dsg-teller 	
