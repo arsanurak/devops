@@ -13,6 +13,8 @@ spec:
       labels:
         app: dollarsmartglobal-com
     spec:
+      imagePullSecrets:
+      - name: ecr-registry-key
       containers:
       - image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dollarsmartglobal-com:1.0.17
         name: dollarsmartglobal-com
