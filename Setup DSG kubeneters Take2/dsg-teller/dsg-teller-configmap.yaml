@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: dsg-teller
 data:
-  MONGO_URL: mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority
+  MONGO_URL: mongodb://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-shard-00-00-42wuh.mongodb.net:27017,stage-dsg-shard-00-01-42wuh.mongodb.net:27017,stage-dsg-shard-00-02-42wuh.mongodb.net:27017/DSG?ssl=true&replicaSet=stage-dsg-shard-0&authSource=admin&retryWrites=true&w=majority
