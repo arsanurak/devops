@@ -7,7 +7,7 @@ spec:
     s3:
       credentialSecretName: s3-creds
       credentialSecretNamespace: default
-      bucketName: rancher-backups
+      bucketName: stage-rancher-backup
       folder: rancher
       region: ap-southeast-1
       endpoint: s3.ap-southeast-1.amazonaws.com
