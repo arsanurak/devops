@@ -1,0 +1,56 @@
+Create Backup AWS S3
+
+iAM Username : stageRancherBackupUser
+iAM : AKIAYSXD7I2A4QEL65UN
+iAM key : 3t+AqyEwz25poLUdknSsmqJcB1fSTUX3sP18NUTN
+
+Policy
+stageS3RancherBackupPolicy
+
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:ListBucket"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::stage-rancher-backup"
+              ]
+          },
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:PutObject",
+                  "s3:GetObject",
+                  "s3:DeleteObject",
+                  "s3:DeleteObjectVersion"
+                        ],
+              "Resource": [
+                  "arn:aws:s3:::stage-rancher-backup/*"
+              ]
+          }
+      ]
+  }
+
+S3 Bucket 
+stage-rancher-backup
+
+S3 Policy 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::589962364545:user/stageRancherBackupUser"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::stage-rancher-backup",
+                "arn:aws:s3:::stage-rancher-backup/*"
+            ]
+        }
+    ]
+}
