@@ -1,0 +1,16 @@
+apiVersion: resources.cattle.io/v1
+kind: Backup
+metadata:
+  name: s3-recurring-backup2
+spec:
+  storageLocation:
+    s3:
+      credentialSecretName: s3-creds
+      credentialSecretNamespace: default
+      bucketName: rancher-backups
+      folder: rancher
+      region: ap-southeast-1
+      endpoint: s3.ap-southeast-1.amazonaws.com
+  resourceSetName: rancher-resource-set
+  schedule: "@every 1h"
+  retentionCount: 10
