@@ -1,8 +1,8 @@
 Create Backup AWS S3
 
 iAM Username : stageRancherBackupUser
-iAM : AKIAYSXD7I2A4QEL65UN
-iAM key : 3t+AqyEwz25poLUdknSsmqJcB1fSTUX3sP18NUTN
+iAM : 
+iAM key : 
 
 Policy
 stageS3RancherBackupPolicy
