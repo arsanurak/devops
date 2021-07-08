@@ -1,21 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kuard
-  namespace: app
+  name: frontend
 spec:
   selector:
     matchLabels:
-      app: kuard
-  replicas: 1
+      app: guestbook
+      tier: frontend
+  replicas: 3
   template:
     metadata:
       labels:
-        app: kuard
+        app: guestbook
+        tier: frontend
     spec:
       containers:
-      - image: gcr.io/kuar-demo/kuard-amd64:1
-        imagePullPolicy: Always
-        name: kuard
+      - name: php-redis
+        image: gcr.io/google-samples/gb-frontend:v4
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
         ports:
-        - containerPort: 8080
+        - containerPort: 80
