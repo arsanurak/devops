@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dsg-teller
+  namespace: dsg-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-dsg-app-dsg-teller
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2021-07-05T09:54:03Z"
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-dsg-app-dsg-teller
+    spec:
+      containers:
+      - env:
+        - name: MONGO_URL
+          value: mongodb+srv://stage-dsguser:pz8fR7swzFNd3dka@stage-dsg-42wuh.mongodb.net/DSG?retryWrites=true&w=majority
+        image: 589962364545.dkr.ecr.ap-southeast-1.amazonaws.com/dsg-teller:1.0.8
+        imagePullPolicy: Always
+        name: dsg-teller
+      imagePullSecrets:
+      - name: aws-ecr-secrets
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dsg-teller
+  namespace: dsg-app
+spec:
+  clusterIP: None
+  clusterIPs:
+  - None
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: default
+    port: 42
+    protocol: TCP
+    targetPort: 42
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-dsg-app-dsg-teller
+  sessionAffinity: None
+  type: ClusterIP
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dsg-app-ingress
+  namespace: dsg-app
+spec:
+  rules:
+  - host: dev-teller.dollarsmartglobal.com
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-6218ca0ed48c08e65afe6b4eabdf9a73
+          servicePort: 8080
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - dev-teller.dollarsmartglobal.com
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.104.38.131
+
+
+

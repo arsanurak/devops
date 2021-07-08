@@ -1,0 +1,43 @@
+Install Cert manager
+go to cluster Click Launch kubectl
+
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.4.0/cert-manager.yaml
+
+Create IssuClusterIssuer
+
+
+
+https://cert-manager.io/docs/configuration/acme/dns01/route53/
+
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: aws-issuer
+spec:
+  acme:
+    email: sysadmin@dollarsmart.co
+    privateKeySecretRef:
+      name: aws-r53-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        route53:
+          accessKeyID: AKIAYSXD7I2A7OYTZ3US
+          hostedZoneID: Z22I3SJKCU9OMI
+          region: ap-southeast-1
+          secretAccessKeySecretRef:
+            key: secret-access-key
+            name: aws-route53-secret
+
+Add App wordpress
+SERVICES AND LOAD BALANCING
+ Specify a hostname to use
+        wp.dollarsmartglobal.com        
+
+
+Local default > Resource > Workloads >
+Confirm 
+1 Workload > wordpress (Deployment) 
+2 Service Discovery > 	wordpress-service
+3 Load Balancing > Specify a hostname to use wp.dollarsmartglobal.com -> wordpress-service
